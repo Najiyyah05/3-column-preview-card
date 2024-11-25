@@ -1,0 +1,179 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+body{
+    font-size: 15px;
+    display: grid;
+    place-content: center;
+}
+:root{
+    --bg-clr-sedan: hsl(31, 77%, 52%);
+    --bg-clr-suv: hsl(184, 100%, 22%);
+    --bg-clr-luxury: hsl(179, 100%, 13%);
+    --clr-paragraph: hsla(0, 0%, 100%, 0.75);
+    --clr-background: hsl(0, 0%, 95%);
+    --ff-header: BigShouldersDisplay;
+    --ff-paragraph: LexendDeca;
+    --fw-header: 700;
+    --fw-paragraph: 400;
+    --fs-paragraph: 0.7rem;
+    --fs-header-media: 2rem;
+}
+@font-face {
+    font-family: LexendDeca;
+    src: url(LexendDeca-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: BigShouldersDisplay;
+    src: url(BigShouldersDisplay-VariableFont_wght.ttf);
+}
+.column-preview-card-container{
+    background: var(--clr-background);
+    max-width: 25rem;
+    margin-block: 3rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin: 0.3rem;
+    margin-block-end: 1rem;
+}
+.column-preview-card-container .column-preview-card{
+    padding: 2rem;
+}
+.column-preview-card-container .column-review-card__header{
+    font-family: var(--ff-header);
+    text-transform: uppercase;
+    font-weight: var(--fw-header);
+    color: var(--clr-background);
+    margin-block-start: 1.5rem;
+}
+.column-preview-card-container .column-review-card__paragraph{
+    font-family: var(--ff-paragraph);
+    font-weight: var(--fw-paragraph);
+    font-size: var(--fs-paragraph);
+    margin-block: 1.5rem;
+    color: var(--clr-paragraph);
+}
+.column-preview-card-container .column-review-card__anchor{
+    text-decoration: none;
+    border-radius: 1rem;
+    background-color: var(--clr-background);
+    margin-top: auto;
+    padding: 0.5rem 1rem;
+    font-family: var(--ff-paragraph);
+    font-size: var(--fs-paragraph);
+    text-transform: capitalize;
+}
+.column-preview-card-container .column-review-card__anchor:hover{
+    background: none;
+    cursr: pointer;
+    color: var(--clr-paragraph);
+    border: 2px solid var(--clr-background);
+}
+.column-preview-card-container .column-preview-card-sedans{
+    background: var(--bg-clr-sedan);
+}
+.column-preview-card-container .column-preview-card-suvs{
+    background: var(--bg-clr-suv);
+}
+.column-preview-card-container .column-preview-card-luxury{
+    background: var(--bg-clr-luxury);
+}
+.column-preview-card .column-review-card__anchor-sedan{
+    color: var(--bg-clr-sedan);
+}
+.column-preview-card .column-review-card__anchor-suv{
+    color: var(--bg-clr-suv);
+}
+.column-preview-card .column-review-card__anchor-luxury{
+    color: var(--bg-clr-luxury);
+}
+footer .attribution{
+    font-size: 11px; text-align: center; 
+}
+footer .attribution a{
+    color: hsl(228, 45%, 44%); 
+}
+@media screen and (min-width: 38rem){
+    .column-preview-card-container{
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-columns: 1fr 1fr 1fr;
+        max-width: 60rem;
+    }
+    .column-preview-card-container .column-review-card__paragraph{
+        margin-block-end: 3.5rem;
+    }
+    .column-preview-card-container .column-review-card__header{
+        font-size: var(--fs-header-media);
+    }
+
+}
